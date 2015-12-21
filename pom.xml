@@ -232,9 +232,12 @@
 						<phase>package</phase>
 						<configuration>
 							<tasks>
+								<echo message="delete /home/dev/desenv/tomcat/webapps/${project.artifactId}" />
+								<delete dir="/home/dev/desenv/tomcat/webapps/${project.artifactId}" />
+								
 								<copy
-									file="/home/lucas/desenv/workspace/schoolbus/target/${artifactId}.war"
-									todir="/home/lucas/desenv/tomcat/webapps/" overwrite="true" />
+									file="/home/dev/desenv/workspace/schoolbus/target/${artifactId}.war"
+									todir="/home/dev/desenv/tomcat/webapps/" overwrite="true" />
 							</tasks>
 						</configuration>
 					</execution>

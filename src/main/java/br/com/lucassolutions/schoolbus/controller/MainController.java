@@ -29,7 +29,7 @@ public class MainController {
 	public ModelAndView login(@RequestParam(value = "error", required = false) String error) {
 		ModelAndView model = new ModelAndView();
 		if (error != null) {
-			model.addObject("errorMessage", "Invalid username or password. Please try again!");
+			model.addObject("errorMessage", "Usuário ou Senha incorreta.Por favor tente novamente!");
 		}
 		model.setViewName(LOGIN_PAGE);
 		return model;
