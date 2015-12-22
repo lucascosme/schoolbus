@@ -17,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>School Bus</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -51,12 +51,14 @@
                         <form name='loginForm' action="<c:url value='/login' />" method='POST'>
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" id="username" name="username" type="text" value="Username" onBlur="if(this.value=='')this.value='Username'" onFocus="if(this.value=='Username')this.value=''" autofocus>
+                                    <label>Nome do usuário</label>
+                                    <input class="form-control" id="username" name="username" type="text" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" id="password" name="password" type="password" value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' ">
+                                    <label>Senha</label>
+                                    <input class="form-control" id="password" name="password" type="password">
                                 </div>
-                                	<input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar">
+                                	<input type="submit" class="btn btn-outline btn-success btn-block" value="Entrar">
                                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                             </fieldset>
                         </form>

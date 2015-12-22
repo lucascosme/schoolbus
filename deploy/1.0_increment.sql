@@ -3,7 +3,7 @@ CREATE TABLE `users` (
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `userName` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
+  `userStatus` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_mmns67o5v4bfippoqitu4v3t6` (`userName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
