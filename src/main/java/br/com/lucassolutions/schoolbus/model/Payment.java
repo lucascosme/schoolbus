@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
@@ -20,5 +22,6 @@ public class Payment extends DomainModel{
 	@Column
 	private LocalDate expirationDate;
 	@Column
+	@Enumerated(value=EnumType.STRING)
 	private PaymentStatus status;
 }
