@@ -198,7 +198,7 @@
                             <a href="#"><i class="glyphicon glyphicon-floppy-saved"></i> Cadastro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Aluno</a>
+                                    <a href="/schoolbus/controller/user/registerStudentView">Aluno</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Escola</a>

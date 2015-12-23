@@ -4,6 +4,7 @@ package br.com.lucassolutions.schoolbus.model;
 import java.io.Serializable;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
@@ -13,7 +14,7 @@ public class DomainModel implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
 	public Long getId() {

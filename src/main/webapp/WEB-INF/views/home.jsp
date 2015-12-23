@@ -6,6 +6,6 @@
 
 <c:import url="header.jsp" />
 
-<p align="center">Sistema financeiro School Bus.</p>
+<h1 align="center"><small>Sistema financeiro School Bus.</small></h1>
 
 <c:import url="footer.jsp" />
