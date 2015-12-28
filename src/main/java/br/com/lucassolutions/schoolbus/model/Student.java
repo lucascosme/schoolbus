@@ -37,7 +37,7 @@ public class Student extends DomainModel {
 	private LocalDate paymentDate;
 	
 	@Column
-	private double value;
+	private double valuePayment;
 	
 	@Enumerated(value = EnumType.STRING)
 	private StudentStatus status;
@@ -90,12 +90,12 @@ public class Student extends DomainModel {
 		this.paymentDate = paymentDate;
 	}
 	
-	public double getValue() {
-		return value;
+	public double getValuePayment() {
+		return valuePayment;
 	}
 	
-	public void setValue(double value) {
-		this.value = value;
+	public void setValuePayment(double value) {
+		this.valuePayment = value;
 	}
 	
 	public StudentStatus getStatus() {

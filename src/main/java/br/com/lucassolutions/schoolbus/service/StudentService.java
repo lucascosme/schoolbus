@@ -9,7 +9,7 @@ import br.com.lucassolutions.schoolbus.dao.SchoolDao;
 import br.com.lucassolutions.schoolbus.model.School;
 
 @Service
-public class ServiceStudent {
+public class StudentService {
 	
 	@Autowired SchoolDao schoolDao;
 

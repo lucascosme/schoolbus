@@ -1,11 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>br.com.lucassolutions</groupId>
-  <artifactId>schoolbus</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+	<groupId>br.com.lucassolutions</groupId>
+	<artifactId>schoolbus</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>schoolbus</name>
 	<url>http://maven.apache.org</url>
 
@@ -57,6 +57,14 @@
 			<artifactId>httpclient</artifactId>
 			<version>4.3.3</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
+
+		<!-- StringUtils -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.3</version>
+		</dependency>
+
 
 		<!-- Spring MVC -->
 		<dependency>
@@ -232,12 +240,14 @@
 						<phase>package</phase>
 						<configuration>
 							<tasks>
-								<echo message="delete /home/dev/desenv/tomcat/webapps/${project.artifactId}" />
-								<delete dir="/home/dev/desenv/tomcat/webapps/${project.artifactId}" />
-								
+								<echo
+									message="delete /home/lucas/desenv/tomcat/webapps/${project.artifactId}" />
+								<delete
+									dir="/home/lucas/desenv/tomcat/webapps/${project.artifactId}" />
+
 								<copy
-									file="/home/dev/desenv/workspace/schoolbus/target/${artifactId}.war"
-									todir="/home/dev/desenv/tomcat/webapps/" overwrite="true" />
+									file="/home/lucas/desenv/workspace/schoolbus/target/${artifactId}.war"
+									todir="/home/lucas/desenv/tomcat/webapps/" overwrite="true" />
 							</tasks>
 						</configuration>
 					</execution>

@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.com.lucassolutions.schoolbus.model.School;
-import br.com.lucassolutions.schoolbus.service.ServiceStudent;
+import br.com.lucassolutions.schoolbus.service.StudentService;
 
 @Component
-public class FacadeStudent {
+public class StudentFacade {
 
-	@Autowired ServiceStudent serviceStudent;
+	@Autowired StudentService studentService;
 	
 	public List<School> getSchools() {
-		List<School> schools = serviceStudent.getSchools();
+		List<School> schools = studentService.getSchools();
 		return schools;
 	}
 
