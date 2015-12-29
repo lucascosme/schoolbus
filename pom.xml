@@ -222,6 +222,12 @@
 			<version>${powermock.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>
+				spring-boot-starter-data-elasticsearch
+			</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -241,13 +247,13 @@
 						<configuration>
 							<tasks>
 								<echo
-									message="delete /home/lucas/desenv/tomcat/webapps/${project.artifactId}" />
+									message="delete /home/dev/desenv/tomcat/webapps/${project.artifactId}" />
 								<delete
-									dir="/home/lucas/desenv/tomcat/webapps/${project.artifactId}" />
+									dir="/home/dev/desenv/tomcat/webapps/${project.artifactId}" />
 
 								<copy
-									file="/home/lucas/desenv/workspace/schoolbus/target/${artifactId}.war"
-									todir="/home/lucas/desenv/tomcat/webapps/" overwrite="true" />
+									file="/home/dev/desenv/workspace/schoolbus/target/${artifactId}.war"
+									todir="/home/dev/desenv/tomcat/webapps/" overwrite="true" />
 							</tasks>
 						</configuration>
 					</execution>

@@ -29,7 +29,7 @@
 	</div>
 </c:if>
 
-<form action="saveStudent?${_csrf.parameterName}=${_csrf.token}" method="post">
+<form:form action="saveStudent?${_csrf.parameterName}=${_csrf.token}" method="post">
 	<div class="row">
 		<h1 class="page-header">
 			<small> Cadastro de Aluno </small>
@@ -39,14 +39,14 @@
 				<div class="col-lg-3">
 					<form role="form">
 						<div class="form-group">
-							<label>Nome</label> <input class="form-control" name="name">
+							<label>Nome</label> <input class="form-control" name="name" id="name">
 						</div>
 					</form>
 				</div>
 				<div class="col-lg-3">
 					<form role="form">
 						<div class="form-group">
-							<label>Nome do Responsavel</label> <input class="form-control" name="responsibleName">
+							<label>Nome do Responsavel</label> <input type="text" name="respName" id="respName" />
 						</div>
 					</form>
 				</div>
@@ -114,6 +114,6 @@
 			</div>
 		</div>
 	</div>
-</form>
+</form:form>
 
 <c:import url="footer.jsp" />

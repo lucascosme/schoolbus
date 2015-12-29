@@ -201,7 +201,7 @@
                                     <a href="/schoolbus/controller/user/registerStudentView">Aluno</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Escola</a>
+                                    <a href="/schoolbus/controller/user/testando">Escola</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Despesa</a>
