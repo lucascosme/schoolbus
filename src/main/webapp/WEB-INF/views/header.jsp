@@ -258,6 +258,9 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        <li>
+                           <a href="/schoolbus/controller/user/test"><i class="glyphicon glyphicon-credit-card"></i> Teste<span class="fa arrow"></span></a>
+                        </li>
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

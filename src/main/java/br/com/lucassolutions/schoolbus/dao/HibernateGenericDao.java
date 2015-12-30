@@ -203,5 +203,4 @@ public class HibernateGenericDao<T extends DomainModel> extends HibernateDaoSupp
 		}
 		return criteria;
 	}
-	
 }
