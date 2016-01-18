@@ -3,7 +3,10 @@ package br.com.lucassolutions.schoolbus.controller;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +19,13 @@ import br.com.lucassolutions.schoolbus.facade.StudentFacade;
 import br.com.lucassolutions.schoolbus.model.Period;
 import br.com.lucassolutions.schoolbus.model.School;
 import br.com.lucassolutions.schoolbus.model.Student;
+import br.com.lucassolutions.schoolbus.util.DateHelper;
 
 @Controller
 @RequestMapping("/controller/user")
 public class StudentController {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(StudentController.class);
 	
 	private static final String REGISTER_STUDENT_VIEW = "registerStudent";
 	
@@ -36,30 +42,24 @@ public class StudentController {
 	}
 	
 	@RequestMapping(value="/saveStudent", method=RequestMethod.POST)
-	public String saveStudent(ModelMap model,
-			@RequestParam("name")String name,
-			@RequestParam("respName")String responsibleName,
-			@RequestParam("telephone")String telephone,
-			@RequestParam("schools")Long schools,
-			@RequestParam("period")String period,
-			@RequestParam("paymentDate")LocalDate paymentDate,
-			@RequestParam("valuePayment")Double valuePayment){
+	public String saveStudent(ModelMap model, @RequestParam("name") String name, @RequestParam("responsibleName") String responsibleName, @RequestParam("telephone") String telephone,
+			@RequestParam("period") String period, @RequestParam("paymentValue") Double paymentValue, @RequestParam("school") Long school,
+			@RequestParam("paymentDate") @DateTimeFormat(pattern = DateHelper.UUUU_MM_DD) LocalDate paymentDate) {
+		LOGGER.info("Saving student with name: " + name + ", telephone: " + telephone + " and responsible name: " + responsibleName + "and date payment: "+ paymentDate);
 		
-		School idSchool = schoolDao.findById(schools);
+		School school2 = schoolDao.findById(school);
 		
 		Student student = new Student();
-		student.setName(name);
-		student.setResponsibleName(responsibleName);
-		student.setTelephone(telephone);
-		student.setSchool(idSchool);
-		student.setPeriod(period);
-		student.setPaymentDate(paymentDate);
-		student.setValuePayment(valuePayment);
 		
+		student.setName(name);
+		student.setTelephone(telephone);
+		student.setResponsibleName(responsibleName);
+		student.setPeriod(period);
+		student.setValuePayment(paymentValue);
+		student.setSchool(school2);
+		student.setPaymentDate(paymentDate);
 		studentDao.save(student);
 		
-		
-		model.addAttribute("sucess", "Aluno salvo com sucesso!");
 		return registerView(model);
 	}
 	

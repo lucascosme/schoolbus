@@ -228,6 +228,34 @@
 				spring-boot-starter-data-elasticsearch
 			</artifactId>
 		</dependency>
+
+		<!-- Logback & SL4J -->
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.scala-lang</groupId>
+			<artifactId>scala-library</artifactId>
+			<version>2.10.4</version>
+		</dependency>
+		<dependency>
+			<groupId>xalan</groupId>
+			<artifactId>xalan</artifactId>
+			<version>2.7.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -246,14 +274,17 @@
 						<phase>package</phase>
 						<configuration>
 							<tasks>
-								<echo
-									message="delete /home/dev/desenv/tomcat/webapps/${project.artifactId}" />
-								<delete
-									dir="/home/dev/desenv/tomcat/webapps/${project.artifactId}" />
+								<echo message="Delete /home/dev/desenv/tomcat/webapps/${project.artifactId}" />
+								<delete dir="/home/dev/desenv/tomcat/webapps/${project.artifactId}" />
 
+								<echo message="Copying ${artifactId}.war to tomcat/webapps/" />
 								<copy
 									file="/home/dev/desenv/workspace/schoolbus/target/${artifactId}.war"
 									todir="/home/dev/desenv/tomcat/webapps/" overwrite="true" />
+									
+								<echo message="Copying logback.conf to tomcat/conf" />
+								<copy file="${basedir}/src/main/resources/logback.xml" 
+									todir="/home/dev/desenv/tomcat/conf/" overwrite="true" />
 							</tasks>
 						</configuration>
 					</execution>
