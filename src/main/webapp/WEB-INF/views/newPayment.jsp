@@ -13,26 +13,22 @@
                         <i class="glyphicon glyphicon-usd"></i> Pagamento
                     </div>
                     <div class="panel-body">
-                        <div class="row">
+						<div class="row">
                             <div class="col-lg-5">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Digite o nome do aluno que deseja buscar">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
+                                <h1><small>Aluno: ${payment.student.name }</small></h1>
+                            </div>
+                            <div class="col-lg-5">
+                                <h1><small>Situação: ${payment.status }</small></h1>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-5">
-                                <h1><small>Valor: R$ 90,00</small></h1>
+                                <h1><small>Valor: R$ ${payment.value }</small></h1>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-5">
-                                <h1><small>Vencimento: 12/10/2015</small></h1>
+                                <h1><small>Vencimento: ${payment.expirationDate }</small></h1>
                             </div>
                         </div>
 

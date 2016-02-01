@@ -18,7 +18,7 @@ public class StudentDao extends HibernateGenericDao<Student>{
 		super(Student.class);
 	}
 	
-	public List<Student> findByName(String name) {
+	public List<Student> findByNameWithLike(String name) {
 		List<Criterion> criterions = new ArrayList<>();
 		criterions.add(Restrictions.ilike("name", name + WHATEVER));
 		return findByCriterion(criterions);

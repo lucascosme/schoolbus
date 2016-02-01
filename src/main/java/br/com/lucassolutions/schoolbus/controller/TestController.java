@@ -23,7 +23,7 @@ public class TestController {
 
 	@RequestMapping(value="/teststudent", method=RequestMethod.POST)
 	public void tests() {
-		List<Student> students = studentDao.findByName("Ju");
+		List<Student> students = studentDao.findByNameWithLike("Ju");
 		for (Student student : students) {
 			System.out.println(student.getName());
 			System.out.println(student.getPeriod());
