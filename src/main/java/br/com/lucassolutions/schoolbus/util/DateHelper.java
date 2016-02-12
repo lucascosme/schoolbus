@@ -1,8 +1,16 @@
 package br.com.lucassolutions.schoolbus.util;
 
 import java.time.LocalDate;
+import java.time.Month;
+import java.time.Year;
+import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
+import java.time.temporal.TemporalField;
+import java.util.Locale;
 
+import org.joda.time.MonthDay;
+import org.joda.time.Months;
 import org.springframework.scheduling.annotation.Scheduled;
 
 public class DateHelper {
@@ -14,7 +22,7 @@ public class DateHelper {
 	
 	public static void main(String[] args) {
 		
-	LocalDate dataPagamento = LocalDate.of(2015, 12, 29);
+	LocalDate dataPagamento = LocalDate.of(2016, 12, 29);
 	
 	DateHelper dateHelper = new DateHelper();
 	String convertLocalDateInString = dateHelper.convertLocalDateInString(LocalDate.now());
@@ -27,6 +35,18 @@ public class DateHelper {
 	}else{
 		System.out.println("Pagamento em dia");
 	}
+	
+	Month[] months = Month.values();
+	
+	for (Month month : months) {
+		System.out.println(month.getDisplayName(TextStyle.FULL, Locale.forLanguageTag("PT-BT")));
+	}
+	
+	Month mes = Month.APRIL;
+	
+	//YearMonth yearMonth = YearMonth.of(year, mes); 
+
+	
 	}
 	
 	public String convertLocalDateInString(LocalDate localDate){
