@@ -61,6 +61,5 @@ public class StudentController {
 		studentDao.save(student);
 		
 		return registerView(model);
-	}
-	
+	}	
 }

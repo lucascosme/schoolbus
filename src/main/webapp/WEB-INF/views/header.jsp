@@ -242,7 +242,7 @@
                             <a href="#"><i class="glyphicon glyphicon-credit-card"></i> Financeiro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Novo Pagamento</a>
+                                    <a href="/schoolbus/controller/user/showPaymentView">Novo Pagamento</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Balanço<span class="fa arrow"></span></a>
