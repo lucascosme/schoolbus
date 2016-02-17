@@ -2,15 +2,13 @@ package br.com.lucassolutions.schoolbus.util;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.time.Year;
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
-import java.time.temporal.TemporalField;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
-import org.joda.time.MonthDay;
-import org.joda.time.Months;
 import org.springframework.scheduling.annotation.Scheduled;
 
 public class DateHelper {
@@ -42,9 +40,15 @@ public class DateHelper {
 		System.out.println(month.getDisplayName(TextStyle.FULL, Locale.forLanguageTag("PT-BT")));
 	}
 	
-	Month mes = Month.APRIL;
+	Month mes = Month.MAY;
+	System.out.println(mes);
 	
-	//YearMonth yearMonth = YearMonth.of(year, mes); 
+	YearMonth yearMonth = YearMonth.of(2016, mes); 
+	
+	LocalDate initial = LocalDate.of(2016, 2, 1);
+	LocalDate end = LocalDate.of(2016, 2, 25);
+	
+//	System.out.println(dateHelper.getDaysBetweenDates(initial, end));
 
 	
 	}
@@ -54,6 +58,16 @@ public class DateHelper {
 		String dateFormated = localDate.format(converter);
 		return dateFormated;
 	}
+	
+//	public List<LocalDate> getDaysBetweenDates(LocalDate startDate, LocalDate endDate){
+//		List<LocalDate> totalDates = new ArrayList<>();
+//		while (!startDate.isAfter(endDate)) {
+//		    totalDates.add(startDate);
+//		    startDate = startDate.plusDays(1);
+//		}
+//		return totalDates;
+//	}
+	
 	
 	@Scheduled(cron=ṔERIOD)
 	public LocalDate addMoreOneMonth(LocalDate datePayment){

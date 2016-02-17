@@ -245,15 +245,7 @@
                                     <a href="/schoolbus/controller/user/showPaymentView">Novo Pagamento</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Balanço<span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Mensal</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Anual</a>
-                                        </li>
-                                    </ul>
+                                    <a href="/schoolbus/controller/user/balanceView">Balanço</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
