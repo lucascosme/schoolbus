@@ -9,10 +9,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import br.com.lucassolutions.schoolbus.model.converter.LocalDatePersistenceConverter;
 
 @Entity
+@Table(name="payments")
 public class Payment extends DomainModel{
 
 	private static final long serialVersionUID = 1L;

@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.lucassolutions.schoolbus.dao.PaymentDao;
 import br.com.lucassolutions.schoolbus.facade.FiancialFacade;
+import br.com.lucassolutions.schoolbus.model.Expense;
 import br.com.lucassolutions.schoolbus.model.Payment;
-import br.com.lucassolutions.schoolbus.model.PaymentStatus;
 import br.com.lucassolutions.schoolbus.model.Student;
 import br.com.lucassolutions.schoolbus.util.DateHelper;
 
@@ -40,7 +40,7 @@ public class FinancialController {
 	
 	@RequestMapping("/newPaymentView")
 	public String newPaymentView(ModelMap model,@RequestParam("studentId")Long studentId){
-		Payment payment = fiancialFacade.getPayment(studentId);
+		Payment payment = fiancialFacade.getPaymentByStudentId(studentId);
 		model.addAttribute("payment", payment);
 		return "newPayment";
 	}
@@ -53,8 +53,10 @@ public class FinancialController {
 	@RequestMapping("/balanceCalc")
 	public String balanceCalc(ModelMap model,@RequestParam("startDate")@DateTimeFormat(pattern = DateHelper.UUUU_MM_DD) LocalDate startDate,
 			@RequestParam("endDate")@DateTimeFormat(pattern = DateHelper.UUUU_MM_DD) LocalDate endDate){
-		Collection<Payment> payments = paymentDao.findByDate(startDate,endDate,PaymentStatus.FINALIZED);
+		Collection<Payment> payments = fiancialFacade.getPaymentsByRangeDate(startDate,endDate);
+		Collection<Expense> expenses = fiancialFacade.getExpensesByRangeDate(startDate,endDate);
 		model.addAttribute("payments", payments);
+		model.addAttribute("expenses", expenses);
 		return balanceView(model);
 	}
 }

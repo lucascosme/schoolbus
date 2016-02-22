@@ -1,5 +1,12 @@
 package br.com.lucassolutions.schoolbus.model;
 
-public class Reminder {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="reminders")
+public class Reminder extends DomainModel{
+
+	private static final long serialVersionUID = 1L;
 
 }

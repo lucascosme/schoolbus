@@ -34,10 +34,12 @@
 								name="endDate" />
 						</div>
 						<div class="col-lg-1">
-							<button type="submit" class="btn btn-primary btn-lg btn-block" style="margim-top: 14px; margim-left: 46px">Pesquisar</button>
+							<button type="submit"
+								class="btn btn-primary" style="margin-top: 24px;">Pesquisar</button>
 						</div>
 					</div>
 					<br><br>
+					<hr />
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="table-responsive">
@@ -68,21 +70,23 @@
 								<table class="table table-striped table-bordered table-hover">
 									<thead>
 										<tr>
-											<th colspan="3"><i>DESPESA</i></th>
+											<th colspan="4"><i>DESPESA</i></th>
 										</tr>
 										<tr>
 											<th>Data</th>
 											<th>Motivo</th>
+											<th>Status</th>
 											<th>Valor</th>
 											
 										</tr>
 									</thead>
-									<c:forEach var="payment" items="${payments}">
+									<c:forEach var="expense" items="${expenses}">
 										<tbody>
 											<tr>
-												<td>${payment.expirationDate}</td>
-												<td>${payment.expirationDate}</td>
-												<td>${payment.value}</td>
+												<td>${expense.dateExpense}</td>
+												<td>${expense.expense}</td>
+												<td>${expense.status}</td>
+												<td>${expense.value}</td>
 											</tr>
 										</tbody>
 									</c:forEach>
