@@ -274,17 +274,17 @@
 						<phase>package</phase>
 						<configuration>
 							<tasks>
-								<echo message="Delete /home/lucas/desenv/tomcat/webapps/${project.artifactId}" />
-								<delete dir="/home/lucas/desenv/tomcat/webapps/${project.artifactId}" />
+								<echo message="Delete /home/dev/desenv/tomcat/webapps/${project.artifactId}" />
+								<delete dir="/home/dev/desenv/tomcat/webapps/${project.artifactId}" />
 
 								<echo message="Copying ${artifactId}.war to tomcat/webapps/" />
 								<copy
-									file="/home/lucas/desenv/workspace/schoolbus/target/${artifactId}.war"
-									todir="/home/lucas/desenv/tomcat/webapps/" overwrite="true" />
+									file="/home/dev/desenv/workspace/schoolbus/target/${artifactId}.war"
+									todir="/home/dev/desenv/tomcat/webapps/" overwrite="true" />
 									
 								<echo message="Copying logback.conf to tomcat/conf" />
 								<copy file="${basedir}/src/main/resources/logback.xml" 
-									todir="/home/lucas/desenv/tomcat/conf/" overwrite="true" />
+									todir="/home/dev/desenv/tomcat/conf/" overwrite="true" />
 							</tasks>
 						</configuration>
 					</execution>
