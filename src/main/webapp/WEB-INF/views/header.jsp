@@ -23,6 +23,9 @@
     <!-- Bootstrap Core CSS -->
     <link href="${pageContext.request.contextPath}/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
+	 <!-- Bootstrap min CSS -->
+    <link href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- MetisMenu CSS -->
     <link href="${pageContext.request.contextPath}/assets/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
@@ -250,9 +253,11 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        
                         <li>
-                           <a href="/schoolbus/controller/user/test"><i class="glyphicon glyphicon-credit-card"></i> Teste<span class="fa arrow"></span></a>
+                            <a href="/schoolbus/controller/user/fileView"><i class="glyphicon glyphicon-search"></i> Arquivos</a>
                         </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
