@@ -7,7 +7,8 @@
 	uri="http://www.springframework.org/security/tags"%>
 
 <c:import url="header.jsp" />
-<form:form>
+<form:form action="saveNewPayment?paymentId=${payment.id}&${_csrf.parameterName}=${_csrf.token}"
+	method="post">
 	<legend>Pagamento</legend>
 	<div class="panel-body">
 		<div class="row">
@@ -28,6 +29,11 @@
 					<small>Valor: R$ ${payment.value }</small>
 				</h1>
 			</div>
+			<div class="col-lg-5">
+				<h1>
+					<small>Último Pagamento: ${payment.lastPayment }</small>
+				</h1>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-lg-5">
@@ -46,7 +52,7 @@
 					Pagamento</button>
 			</div>
 			<div class="col-lg-2">
-				<button type="submit"
+				<button type="reset"
 					class="btn btn-outline btn-danger btn-outline btn-block">Cancelar</button>
 			</div>
 		</div>

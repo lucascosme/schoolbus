@@ -58,7 +58,7 @@
                                     <label>Senha</label>
                                     <input class="form-control" id="password" name="password" type="password">
                                 </div>
-                                	<input type="submit" class="btn btn-outline btn-success btn-block" value="Entrar">
+                                	<input type="submit" class="btn btn-lg btn-success btn-block" value="Entrar">
                                 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                             </fieldset>
                         </form>

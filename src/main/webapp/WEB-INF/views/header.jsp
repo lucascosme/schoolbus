@@ -204,10 +204,10 @@
                                     <a href="/schoolbus/controller/user/registerStudentView">Aluno</a>
                                 </li>
                                 <li>
-                                    <a href="/schoolbus/controller/user/testando">Escola</a>
+                                    <a href="/schoolbus/controller/user/saveSchoolView">Escola</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Despesa</a>
+                                    <a href="/schoolbus/controller/user/saveExpenseView">Despesa</a>
                                 </li>
                                 <li>
                                     <a href="morris.html">Lembrete</a>
@@ -241,6 +241,15 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                        
+                         <li>
+                            <a href="#"><i class="fa fa-book"></i> Contatos</a>
+                        </li>
+                        
+                         <li>
+                            <a href="/schoolbus/controller/user/fileView"><i class="glyphicon glyphicon-folder-open"></i> Documentos</a>
+                        </li>
+                        
                         <li>
                             <a href="#"><i class="glyphicon glyphicon-credit-card"></i> Financeiro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -254,9 +263,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         
-                        <li>
-                            <a href="/schoolbus/controller/user/fileView"><i class="glyphicon glyphicon-search"></i> Arquivos</a>
-                        </li>
+                       
                         
                     </ul>
                 </div>
@@ -264,7 +271,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <div id="page-wrapper">
             
 

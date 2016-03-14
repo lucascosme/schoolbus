@@ -35,42 +35,41 @@
 	</div>
 </c:if>
 
-<form:form action="saveStudent?${_csrf.parameterName}=${_csrf.token}"
-	method="post">
+<form:form action="saveStudent?${_csrf.parameterName}=${_csrf.token}" method="post">
 	<legend>Cadastro de aluno</legend>
 	<div class="row">
 		<div class="col-lg-4">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Nome</label> 
 					<input type="text" class="form-control" name="name">
 				</div>
-			</form>
+			
 		</div>
 		<div class="col-lg-4">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Nome do Responsavel</label> 
 					<input type="text" class="form-control" name="responsibleName">
 				</div>
-			</form>
+			
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-lg-3">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Telefone</label> 
 					<input type="text" class="form-control" name="telephone">
 				</div>
-			</form>
+			
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-lg-3">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Escola</label> 
 					<select class="form-control" name="school">
@@ -79,10 +78,10 @@
 						</c:forEach>
 					</select>
 				</div>
-			</form>
+			
 		</div>
 		<div class="col-lg-2">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Periodo</label>
 					<select class="form-control" name="period">
@@ -91,26 +90,26 @@
 						</c:forEach>
 					</select>
 				</div>
-			</form>
+			
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-lg-2">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Data de pagamento</label> 
 					<input type="date" class="form-control" name="paymentDate">
 				</div>
-			</form>
+			
 		</div>
 		<div class="col-lg-2">
-			<form role="form">
+			
 				<div class="form-group">
 					<label>Valor</label> 
 					<input type="text" class="form-control" name="paymentValue">
 				</div>
-			</form>
+			
 		</div>
 	</div>
 

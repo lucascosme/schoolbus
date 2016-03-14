@@ -1,5 +1,6 @@
 package br.com.lucassolutions.schoolbus.facade;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class StudentFacade {
 
 	public List<Student> searchStudentName(String name) {
 		return studentService.searchStudentName(name);
+	}
+
+	public void saveStudent(String name, String telephone, String responsibleName, String period, Double paymentValue,
+			Long schoolId, LocalDate paymentDate) {
+		studentService.saveStudent(name,telephone,responsibleName,period,paymentValue,schoolId,paymentDate);
 	}
 
 }

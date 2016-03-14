@@ -1,6 +1,7 @@
 package br.com.lucassolutions.schoolbus.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Convert;
@@ -9,7 +10,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 import br.com.lucassolutions.schoolbus.model.converter.LocalDatePersistenceConverter;
 
@@ -28,7 +33,7 @@ public class Student extends DomainModel {
 	@Column
 	private String telephone;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
+	@ManyToOne
 	private School school;
 	
 	@Column
@@ -37,6 +42,10 @@ public class Student extends DomainModel {
 	@Column
 	@Convert(converter = LocalDatePersistenceConverter.class)
 	private LocalDate paymentDate;
+	
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="student", targetEntity = Payment.class)
+	@Cascade(CascadeType.SAVE_UPDATE)
+	private List<Payment> payment;
 	
 	@Column
 	private double valuePayment;
@@ -106,5 +115,13 @@ public class Student extends DomainModel {
 	
 	public void setStatus(StudentStatus status) {
 		this.status = status;
+	}
+
+	public List<Payment> getPayment() {
+		return payment;
+	}
+
+	public void setPayment(List<Payment> payment) {
+		this.payment = payment;
 	}
 }

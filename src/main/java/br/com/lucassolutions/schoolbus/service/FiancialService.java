@@ -23,9 +23,10 @@ public class FiancialService {
 	@Autowired private PaymentDao paymentDao;
 	@Autowired private ExpenseDao expenseDao;
 	
-	public List<Student> searchStudentName(String name) {
-		List<Student> listStudent = studentDao.findByNameWithLike(name);
-		return listStudent;
+	public Collection<Payment> searchStudentName(String name) {
+		List<Student> listStudent = studentDao.findByNameWithLike(name, PaymentStatus.OPENED);
+		Collection<Payment> studentWithStatusOpened = paymentDao.findByStatus(listStudent, PaymentStatus.OPENED);
+		return studentWithStatusOpened;
 	}
 
 	public Payment getPaymentByStudentId(Long studentId) {
@@ -41,5 +42,17 @@ public class FiancialService {
 	public Collection<Expense> getExpensesByRangeDate(LocalDate startDate, LocalDate endDate) {
 		Collection<Expense> expenses = expenseDao.findByDate(startDate, endDate, ExpenseStatus.OPENED,ExpenseStatus.PAID_OUT);
 		return expenses;
+	}
+	
+	public double paymentSum(Collection<Payment> payments){
+		return payments.stream().mapToDouble(p -> p.getValue()).sum();
+	}
+	
+	public double expenseSum(Collection<Expense> expenses){
+		return expenses.stream().mapToDouble(e -> e.getValue()).sum();
+	}
+	
+	public double receivingLiquid(double payment, double expense){
+		return payment-expense;
 	}
 }

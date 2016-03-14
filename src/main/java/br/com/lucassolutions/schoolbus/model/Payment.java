@@ -2,6 +2,7 @@ package br.com.lucassolutions.schoolbus.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
@@ -19,9 +20,6 @@ public class Payment extends DomainModel{
 
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne(fetch=FetchType.EAGER)
-	private Student student;
-	
 	@Column
 	private double value;
 	
@@ -29,17 +27,32 @@ public class Payment extends DomainModel{
 	@Convert(converter = LocalDatePersistenceConverter.class)
 	private LocalDate expirationDate;
 	
+	@Column
+	@Convert(converter = LocalDatePersistenceConverter.class)
+	private LocalDate lastPayment;
+	
 	@Enumerated(value=EnumType.STRING)
 	private PaymentStatus status;
 	
+	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Student student;
+
 	public Student getStudent() {
 		return student;
 	}
-	
+
 	public void setStudent(Student student) {
 		this.student = student;
 	}
-	
+
+	public LocalDate getLastPayment() {
+		return lastPayment;
+	}
+
+	public void setLastPayment(LocalDate lastPayment) {
+		this.lastPayment = lastPayment;
+	}
+
 	public double getValue() {
 		return value;
 	}

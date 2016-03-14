@@ -44,15 +44,15 @@
 						<th>Pagamento</th>
 					</tr>
 				</thead>
-				<c:forEach var="student" items="${listStudents}">
+				<c:forEach var="payment" items="${listPayments}">
 					<tbody>
 						<tr
 							onclick="window.document.location='/schoolbus/controller/user/newPaymentView?studentId=${student.id}&${_csrf.parameterName}=${_csrf.token}';"
 							style="cursor: Pointer">
-							<td>${student.name}</td>
-							<td>${student.school.schoolName}</td>
-							<td>${student.period}</td>
-							<td>${student.status}</td>
+							<td>${payment.studentid.name}</td>
+							<td>${payment.studentid.school.schoolName}</td>
+							<td>${payment.studentid.period}</td>
+							<td>${payment.studentid.status}</td>
 						</tr>
 					</tbody>
 				</c:forEach>

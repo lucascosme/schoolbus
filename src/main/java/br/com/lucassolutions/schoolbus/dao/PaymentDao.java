@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.lucassolutions.schoolbus.model.Payment;
 import br.com.lucassolutions.schoolbus.model.PaymentStatus;
+import br.com.lucassolutions.schoolbus.model.Student;
 
 @Repository
 public class PaymentDao extends HibernateGenericDao<Payment>{
@@ -30,4 +31,20 @@ public class PaymentDao extends HibernateGenericDao<Payment>{
 		return findByCriterionAndOrderByAsc(criterions, "expirationDate");
 	}
 	
+	public void updateStatus(Long paymentId,PaymentStatus paymentStatus) {
+		Payment payment = findById(paymentId);
+		payment.setStatus(paymentStatus);
+		update(payment);
+	}
+	
+	public Collection<Payment> findByStatus(List<Student> studentsid, PaymentStatus... paymentStatus) {
+		List<Criterion> criterions = new ArrayList<>();
+		criterions.add(
+			Restrictions.and(
+				Restrictions.in("status", paymentStatus),
+				Restrictions.eq("id", studentsid)
+			)
+		);
+		return findByCriterion(criterions);
+	}
 }
