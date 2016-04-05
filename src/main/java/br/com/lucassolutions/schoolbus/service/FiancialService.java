@@ -15,6 +15,7 @@ import br.com.lucassolutions.schoolbus.model.ExpenseStatus;
 import br.com.lucassolutions.schoolbus.model.Payment;
 import br.com.lucassolutions.schoolbus.model.PaymentStatus;
 import br.com.lucassolutions.schoolbus.model.Student;
+import br.com.lucassolutions.schoolbus.model.StudentStatus;
 
 @Service
 public class FiancialService {
@@ -24,7 +25,7 @@ public class FiancialService {
 	@Autowired private ExpenseDao expenseDao;
 	
 	public Collection<Payment> searchStudentName(String name) {
-		List<Student> listStudent = studentDao.findByNameWithLike(name, PaymentStatus.OPENED);
+		List<Student> listStudent = studentDao.findByNameAndStatusWithLike(name, StudentStatus.ACTIVE);
 		Collection<Payment> studentWithStatusOpened = paymentDao.findByStatus(listStudent, PaymentStatus.OPENED);
 		return studentWithStatusOpened;
 	}

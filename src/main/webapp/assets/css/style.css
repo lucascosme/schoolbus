@@ -6,138 +6,87 @@
   box-sizing: border-box;
 }
 
-body {
-  background: #eaeaea;
-  color: #999;
-  font: 400 16px/1.5em sans-serif;
-  margin: 0;
-}
-
-h3 {
-  margin: 0;
+body{
+	padding-right: 0px;
+	position: absolute;
+    height: 100%;
+    display: block;
+    width: 100%;
+    overflow: hidden;
 }
 
 a {
-  color: #999;
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #1dabb8;
+  color: #337AB7;
+}
+a.active{
+	background-color: #eee;
+	color: #337AB7;
+}
+#page-wrapper{
+	box-shadow: inset 1px 3px 10px rgba(0,0,0,0.3);
+	padding: 20px 20px 30px 20px;
 }
 
-fieldset {
-  border: none;
-  margin: 0;
+.nav.background-color{
+	background-color: rgba(152, 152, 152, 0.95);
 }
 
-input {
-  border: none;
-  font-family: inherit;
-  font-size: inherit;
-  margin: 0;
-  -webkit-appearance: none;
+.background-color{
+	background-color: rgba(152, 152, 152, 0.95);
 }
 
-input:focus {
-  outline: none;
+.navbar-header.logo{
+  width: 18.6%;
+  background-color: #337AB7;
 }
 
-input[type="submit"] {
-  cursor: pointer;
+.border-header{
+	margin-bottom: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 3px;
+    border-bottom-color: white;
+    border-style: double;
 }
 
-.clearfix {
-  *zoom: 1;
-}
-.clearfix:before, .clearfix:after {
-  content: ' ';
-  display: table;
-}
-.clearfix:after {
-  clear: both;
+
+.modal-content.new{
+	background-color: #777;
+	border-radius: 0px;
+	border: 0px;
+	margin-top: 30%;
+	margin-left: 20%;
+	box-shadow: 1px solid;
 }
 
-.container {
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.modal-body.new{
+	font: 400 20px/1.5em sans-serif;
+	color: #ffffff;
 }
 
-/* ---------- LOGIN-FORM ---------- */
-#login-form {
-  width: 300px;
+.modal-title.new{
+	color: #ffffff;
 }
 
-#login-form h3 {
-  background-color: #282830;
-  border-radius: 5px 5px 0 0;
-  color: #fff;
-  font-size: 14px;
-  padding: 20px;
-  text-align: center;
-  text-transform: uppercase;
+.close.white{
+	color: rgb(255, 255, 255);
+	font-size: 27px;
 }
 
-#login-form fieldset {
-  background: #fff;
-  border-radius: 0 0 5px 5px;
-  padding: 20px;
-  position: relative;
+.modal-header.border-double{
+	border-bottom: 3px double #e5e5e5;
 }
 
-#login-form fieldset:before {
-  background-color: #fff;
-  content: "";
-  height: 8px;
-  left: 50%;
-  margin: -4px 0 0 -4px;
-  position: absolute;
-  top: 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-  width: 8px;
+.modal-footer.border-double{
+	border-top: 3px double #e5e5e5;
 }
 
-#login-form input {
-  font-size: 14px;
-}
-
-#login-form input[type="text"],
-#login-form input[type="password"] {
-  border: 1px solid #dcdcdc;
-  padding: 12px 10px;
-  width: 100%;
-}
-
-#login-form input[type="text"] {
-  border-radius: 3px 3px 0 0;
-}
-
-#login-form input[type="password"] {
-  border-top: none;
-  border-radius: 0px 0px 3px 3px;
-}
-
-#login-form input[type="submit"] {
-  background: #1dabb8;
-  border-radius: 3px;
-  color: #fff;
-  float: right;
-  font-weight: bold;
-  margin-top: 20px;
-  padding: 12px 20px;
-}
-
-#login-form input[type="submit"]:hover {
-  background: #198d98;
-}
-
-#login-form footer {
-  font-size: 12px;
-  margin-top: 16px;
+.modal-dialog.width{
+	width: 700px;
 }

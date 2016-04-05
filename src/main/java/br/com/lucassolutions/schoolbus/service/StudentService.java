@@ -28,13 +28,9 @@ public class StudentService {
 		return schools;
 	}
 
-	public List<Student> searchStudentName(String name) {
-		List<Student> students = studentDao.findByNameWithLike(name);
-		return students;
-	}
-
-	public void saveStudent(String name, String telephone, String responsibleName, String period, Double paymentValue,
-			Long schoolId, LocalDate paymentDate) {
+	public void saveStudent(String name, String homePhone, String responsibleName, String celPhone,
+			String messagePhone, String address, String neighborhood, String complement, String period,
+			Double paymentValue, Long schoolId, LocalDate paymentDate) {
 		
 		School school = schoolDao.findById(schoolId);
 		
@@ -48,7 +44,12 @@ public class StudentService {
 		payment.setStudent(student);
 		
 		student.setName(name);
-		student.setTelephone(telephone);
+		student.setHomePhone(homePhone);
+		student.setCelPhone(celPhone);
+		student.setMessagePhone(messagePhone);
+		student.setAddress(address);
+		student.setNeighborhood(neighborhood);
+		student.setComplement(complement);
 		student.setResponsibleName(responsibleName);
 		student.setPeriod(period);
 		student.setValuePayment(paymentValue);
@@ -57,8 +58,20 @@ public class StudentService {
 		student.setStatus(StudentStatus.ACTIVE);
 		student.setPayment(payments);
 
-		paymentDao.save(payment);
 		studentDao.save(student);
+		paymentDao.save(payment);
 		
+	}
+
+	public List<Student> getStudents() {
+		return studentDao.findByStatus(StudentStatus.ACTIVE);
+	}
+
+	public List<Student> searchStudent(String name) {
+		return studentDao.findByNameAndStatusWithLike(name, StudentStatus.ACTIVE);
+	}
+
+	public void disableStudent(Long studentId) {
+		studentDao.updateStatus(studentId, StudentStatus.DISABLE);
 	}
 }

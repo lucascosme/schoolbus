@@ -8,13 +8,9 @@ import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 import br.com.lucassolutions.schoolbus.model.converter.LocalDatePersistenceConverter;
 
@@ -31,8 +27,23 @@ public class Student extends DomainModel {
 	private String responsibleName;
 	
 	@Column
-	private String telephone;
+	private String homePhone;
 	
+	@Column
+	private String celPhone;
+	
+	@Column
+	private String messagePhone;
+	
+	@Column
+	private String address;
+	
+	@Column
+	private String neighborhood;
+	
+	@Column
+	private String complement;
+
 	@ManyToOne
 	private School school;
 	
@@ -43,8 +54,7 @@ public class Student extends DomainModel {
 	@Convert(converter = LocalDatePersistenceConverter.class)
 	private LocalDate paymentDate;
 	
-	@OneToMany(fetch=FetchType.LAZY, mappedBy="student", targetEntity = Payment.class)
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@OneToMany(mappedBy="student", targetEntity = Payment.class)
 	private List<Payment> payment;
 	
 	@Column
@@ -53,6 +63,30 @@ public class Student extends DomainModel {
 	@Enumerated(value = EnumType.STRING)
 	private StudentStatus status;
 	
+	public String getAddress() {
+		return address;
+	}
+	
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	
+	public String getNeighborhood() {
+		return neighborhood;
+	}
+	
+	public void setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
+	}
+	
+	public String getComplement() {
+		return complement;
+	}
+	
+	public void setComplement(String complement) {
+		this.complement = complement;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -69,14 +103,30 @@ public class Student extends DomainModel {
 		this.responsibleName = responsibleName;
 	}
 	
-	public String getTelephone() {
-		return telephone;
+	public String getHomePhone() {
+		return homePhone;
+	}
+
+	public void setHomePhone(String homePhone) {
+		this.homePhone = homePhone;
+	}
+
+	public String getCelPhone() {
+		return celPhone;
+	}
+
+	public void setCelPhone(String celPhone) {
+		this.celPhone = celPhone;
+	}
+
+	public String getMessagePhone() {
+		return messagePhone;
 	}
 	
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
+	public void setMessagePhone(String messagePhone) {
+		this.messagePhone = messagePhone;
 	}
-	
+
 	public School getSchool() {
 		return school;
 	}

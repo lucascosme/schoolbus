@@ -42,7 +42,7 @@ public class PaymentDao extends HibernateGenericDao<Payment>{
 		criterions.add(
 			Restrictions.and(
 				Restrictions.in("status", paymentStatus),
-				Restrictions.eq("id", studentsid)
+				Restrictions.in("student_id", studentsid.toArray())
 			)
 		);
 		return findByCriterion(criterions);

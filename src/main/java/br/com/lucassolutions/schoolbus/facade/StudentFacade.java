@@ -20,13 +20,23 @@ public class StudentFacade {
 		return schools;
 	}
 
-	public List<Student> searchStudentName(String name) {
-		return studentService.searchStudentName(name);
+	public List<Student> searchStudent(String name) {
+		return studentService.searchStudent(name);
+	}
+	
+	public void saveStudent(String name, String homePhone, String responsibleName, String celPhone,
+			String messagePhone, String address, String neighborhood, String complement, String period,
+			Double paymentValue, Long schoolId, LocalDate paymentDate) {
+		studentService.saveStudent(name,homePhone,responsibleName,celPhone,messagePhone,address,neighborhood,
+				complement,period,paymentValue,schoolId,paymentDate);
 	}
 
-	public void saveStudent(String name, String telephone, String responsibleName, String period, Double paymentValue,
-			Long schoolId, LocalDate paymentDate) {
-		studentService.saveStudent(name,telephone,responsibleName,period,paymentValue,schoolId,paymentDate);
+	public List<Student> getStudents() {
+		return studentService.getStudents();
+		
 	}
 
+	public void disableStudent(Long studentId) {
+		studentService.disableStudent(studentId);
+	}
 }
