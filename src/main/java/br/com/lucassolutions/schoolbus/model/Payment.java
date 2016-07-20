@@ -37,12 +37,20 @@ public class Payment extends DomainModel{
 	@JoinColumn(name="student_id")
 	private Student student;
 
-	public Student getStudent() {
-		return student;
+	public double getValue() {
+		return value;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setValue(double value) {
+		this.value = value;
+	}
+
+	public LocalDate getExpirationDate() {
+		return expirationDate;
+	}
+
+	public void setExpirationDate(LocalDate expirationDate) {
+		this.expirationDate = expirationDate;
 	}
 
 	public LocalDate getLastPayment() {
@@ -53,27 +61,19 @@ public class Payment extends DomainModel{
 		this.lastPayment = lastPayment;
 	}
 
-	public double getValue() {
-		return value;
-	}
-	
-	public void setValue(double value) {
-		this.value = value;
-	}
-	
-	public LocalDate getExpirationDate() {
-		return expirationDate;
-	}
-	
-	public void setExpirationDate(LocalDate expirationDate) {
-		this.expirationDate = expirationDate;
-	}
-	
 	public PaymentStatus getStatus() {
 		return status;
 	}
-	
+
 	public void setStatus(PaymentStatus status) {
 		this.status = status;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
 	}
 }

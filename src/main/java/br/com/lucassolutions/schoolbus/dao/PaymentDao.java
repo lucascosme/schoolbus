@@ -6,12 +6,13 @@ import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import br.com.lucassolutions.schoolbus.model.Payment;
 import br.com.lucassolutions.schoolbus.model.PaymentStatus;
-import br.com.lucassolutions.schoolbus.model.Student;
+import br.com.lucassolutions.schoolbus.model.StudentStatus;
 
 @Repository
 public class PaymentDao extends HibernateGenericDao<Payment>{
@@ -31,20 +32,34 @@ public class PaymentDao extends HibernateGenericDao<Payment>{
 		return findByCriterionAndOrderByAsc(criterions, "expirationDate");
 	}
 	
-	public void updateStatus(Long paymentId,PaymentStatus paymentStatus) {
+	public void updateStatusAndLastPayment(Long paymentId,PaymentStatus paymentStatus, LocalDate lastPayment) {
 		Payment payment = findById(paymentId);
 		payment.setStatus(paymentStatus);
+		payment.setLastPayment(lastPayment);
 		update(payment);
 	}
 	
-	public Collection<Payment> findByStatus(List<Student> studentsid, PaymentStatus... paymentStatus) {
+	public Collection<Payment> findByStatusAndStudentId(Long studentId, PaymentStatus... paymentStatus) {
 		List<Criterion> criterions = new ArrayList<>();
 		criterions.add(
-			Restrictions.and(
-				Restrictions.in("status", paymentStatus),
-				Restrictions.in("student_id", studentsid.toArray())
-			)
-		);
+				Restrictions.and(
+						Restrictions.eq("student.id", studentId),
+						Restrictions.in("status", paymentStatus)
+						));
 		return findByCriterion(criterions);
+	}
+	
+	public Collection<Payment> findByStatusAndActiveStudentName(String name, PaymentStatus... paymentStatus) {
+		List<Criterion> criterions = new ArrayList<>();
+		criterions.add(Restrictions.in("status", paymentStatus));
+		
+		Criterion criterionJoin = Restrictions.and(
+				Restrictions.eq("student.status", StudentStatus.ACTIVE), 
+				Restrictions.ilike("student.name", name, MatchMode.START)
+				);
+		String joinTable = "student";
+		
+		String propertyNameToOrderBy = "student.name";
+		return findByCriterionWithJoinAndOrderByDesc(criterions, criterionJoin , joinTable, propertyNameToOrderBy );
 	}
 }
