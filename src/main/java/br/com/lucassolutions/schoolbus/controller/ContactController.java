@@ -38,7 +38,7 @@ public class ContactController {
 	public String demandContact(ModelMap model, @RequestParam("contactName") String contactName) {
 		try {
 			if (contactName.isEmpty()) {
-				model.addAttribute(MessageKey.ERROR.getKey(), Message.NAME_CONTACT_IS_EMPTY.getKey());
+				model.addAttribute(MessageKey.ERROR.getKey(), Message.NAME_IS_EMPTY.getKey());
 			} else {
 				List<Contact> listContacts = contactFacade.demandContact(contactName);
 				model.addAttribute("listContacts", listContacts);
@@ -48,7 +48,7 @@ public class ContactController {
 				}
 			}
 		} catch (Exception e) {
-			model.addAttribute(MessageKey.ERROR.getKey(), Message.SEARCH_CONTACT_ERROR.getKey());
+			model.addAttribute(MessageKey.ERROR.getKey(), Message.SEARCH_ERROR.getKey());
 			LOGGER.info("ERRO AO BUSCAR CONTATO, EXCEPTION: " + e);
 		}
 		return screenContact(model);
@@ -61,10 +61,10 @@ public class ContactController {
 			model.addAttribute("listContacts", listContacts);
 			model.addAttribute("listSize", listContacts.size());
 			if (listContacts.size() == 0){
-				model.addAttribute(MessageKey.WARNING.getKey(), Message.DONT_HAVE_CONTACT.getKey());
+				model.addAttribute(MessageKey.WARNING.getKey(), Message.DONT_HAVE_DATA.getKey());
 			}
 		} catch (Exception e) {
-			model.addAttribute(MessageKey.ERROR.getKey(), Message.SEARCH_CONTACT_ERROR.getKey());
+			model.addAttribute(MessageKey.ERROR.getKey(), Message.SAVE_ERROR.getKey());
 		}
 		return screenContact(model);
 	}
@@ -78,9 +78,9 @@ public class ContactController {
 	@RequestParam("city")String city, @RequestParam("state")String state){
 		try {
 			contactFacade.saveContact(contactName,site,email,telephone,celphone,address,neighborhood,city,state);
-			model.addAttribute(MessageKey.SUCESS.getKey(), Message.SAVE_CONTACT_SUCSESSFUL.getKey());
+			model.addAttribute(MessageKey.SUCESS.getKey(), Message.SAVE_SUCSESSFUL.getKey());
 		} catch (Exception e) {
-			model.addAttribute(MessageKey.ERROR.getKey(), Message.SAVE_CONTACT_ERROR.getKey());
+			model.addAttribute(MessageKey.ERROR.getKey(), Message.SAVE_ERROR.getKey());
 		}
 		return screenContact(model);
 	}
@@ -89,9 +89,9 @@ public class ContactController {
 	public String deleteContact(ModelMap model, @RequestParam("contactId") Long contactId) {
 		try {
 			contactFacade.disableContact(contactId);
-			model.addAttribute(MessageKey.SUCESS.getKey(), Message.DELETE_CONTACT_SUCCESSFUL.getKey());
+			model.addAttribute(MessageKey.SUCESS.getKey(), Message.DELETE_SUCCESSFUL.getKey());
 		} catch (Exception e) {
-			model.addAttribute(MessageKey.ERROR.getKey(), Message.DELETE_CONTACT_ERROR.getKey());
+			model.addAttribute(MessageKey.ERROR.getKey(), Message.DELETE_ERROR.getKey());
 			LOGGER.info("ERRO AO DELETAR CONTATO, EXCEPTION: " + e);
 		}
 		return screenContact(model);
