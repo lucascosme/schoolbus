@@ -65,7 +65,6 @@
 			<version>2.3</version>
 		</dependency>
 
-
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -89,6 +88,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.0.0.GA</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<!-- Spring and Transactions -->
 		<dependency>
@@ -151,6 +158,12 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate.hql</groupId>
+			<artifactId>hibernate-hql-parser</artifactId>
+			<version>1.2.2.Final</version>
+		</dependency>
+
 
 		<!-- MySQL Connector Java dependency (JDBC driver for MySQL) -->
 		<dependency>
