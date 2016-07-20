@@ -5,7 +5,7 @@
 
 <c:import url="header.jsp" />
 
-<form:form action="saveStudent?${_csrf.parameterName}=${_csrf.token}" method="post">
+<form:form action="saveStudent?responsible=${responsible.id}&${_csrf.parameterName}=${_csrf.token}" method="post">
 	<legend>Cadastro de aluno</legend>
 	<div class="row">
 		<div class="col-lg-4">
@@ -20,58 +20,13 @@
 			
 				<div class="form-group">
 					<label>Nome do Responsavel</label> 
-					<input type="text" class="form-control" name="responsibleName">
+					<input type="text" class="form-control" name="responsibleName" value="${responsible.name}" disabled>
+					<c:set var="responsible" value="${responsible}" />
 				</div>
 			
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-lg-3">
-			
-				<div class="form-group">
-					<label>Telefone Residencial</label> 
-					<input type="text" class="form-control" name="homePhone">
-				</div>
-			
-		</div>
-		<div class="col-lg-3">
-			
-				<div class="form-group">
-					<label>Telefone Celular</label> 
-					<input type="text" class="form-control" name="celPhone">
-				</div>
-			
-		</div>
-		<div class="col-lg-2">
-			
-				<div class="form-group">
-					<label>Telefone de Recado</label> 
-					<input type="text" class="form-control" name="messagePhone">
-				</div>
-			
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-lg-3">
-				<div class="form-group">
-					<label>Endereço</label> 
-					<input type="text" class="form-control" name="address" placeholder="Rua, número">
-				</div>
-		</div>
-		<div class="col-lg-3">
-				<div class="form-group">
-					<label>Bairro</label> 
-					<input type="text" class="form-control" name="neighborhood">
-				</div>
-		</div>
-		<div class="col-lg-2">
-				<div class="form-group">
-					<label>Complemento</label> 
-					<input type="text" class="form-control" name="complement">
-				</div>
-		</div>
-	</div>
 	<hr />
 	<div class="row">
 		<div class="col-lg-3">
