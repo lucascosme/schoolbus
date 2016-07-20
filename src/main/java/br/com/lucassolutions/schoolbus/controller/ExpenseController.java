@@ -18,6 +18,11 @@ public class ExpenseController {
 
 	@Autowired ExpenseFacade expenseFacade;
 	
+	@RequestMapping("/screenExpense")
+	public String screenExpense(){
+		return "screenExpense";
+	}
+	
 	@RequestMapping("/saveExpenseView")
 	public String saveExpenseView(){
 		return "registerExpense";
