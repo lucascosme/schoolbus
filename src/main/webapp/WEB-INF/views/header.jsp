@@ -231,7 +231,7 @@
                             <a href="/schoolbus/controller/user/screenContact"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Contatos</a>
                         </li>
                          <li>
-                             <a href="/schoolbus/controller/user/saveExpenseView"><i class="fa fa-dollar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Despesas</a>
+                             <a href="/schoolbus/controller/user/screenExpense"><i class="fa fa-dollar"></i>&nbsp;&nbsp;&nbsp;&nbsp;Despesas</a>
                          </li>
                          <li>
                             <a href="/schoolbus/controller/user/fileView"><i class="fa fa-folder-open"></i>&nbsp;&nbsp;&nbsp;Documentos</a>
@@ -262,7 +262,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div id="page-wrapper">
+        <div id="page-wrapper" style="max-height: 347px; overflow: auto;">
         	
         	<c:if test="${not empty sucess}">
 			   	<div class="alert alert-success alert-dismissible" role="alert">
