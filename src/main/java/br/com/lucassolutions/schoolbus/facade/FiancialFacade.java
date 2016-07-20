@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.lucassolutions.schoolbus.model.Expense;
 import br.com.lucassolutions.schoolbus.model.Payment;
+import br.com.lucassolutions.schoolbus.model.Student;
 import br.com.lucassolutions.schoolbus.service.FiancialService;
 
 @Component
@@ -15,11 +16,11 @@ public class FiancialFacade {
 
 	@Autowired private FiancialService fiancialService;
 	
-	public Collection<Payment> searchStudentName(String name) {
+	public Collection<Student> searchStudentName(String name) {
 		return fiancialService.searchStudentName(name);
 	}
 
-	public Payment getPaymentByStudentId(Long studentId) {
+	public Collection<Payment> getPaymentByStudentId(Long studentId) {
 		return fiancialService.getPaymentByStudentId(studentId);
 	}
 
@@ -29,5 +30,9 @@ public class FiancialFacade {
 
 	public Collection<Expense> getExpensesByRangeDate(LocalDate startDate, LocalDate endDate) {
 		return fiancialService.getExpensesByRangeDate(startDate,endDate);
+	}
+
+	public Long updatePayment(Long paymentId) {
+		return fiancialService.updatePayment(paymentId);
 	}
 }

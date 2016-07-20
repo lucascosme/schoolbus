@@ -3,20 +3,20 @@ package br.com.lucassolutions.schoolbus.controller;
 import java.time.LocalDate;
 import java.util.Collection;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.lucassolutions.schoolbus.dao.PaymentDao;
-import br.com.lucassolutions.schoolbus.dao.StudentDao;
 import br.com.lucassolutions.schoolbus.facade.FiancialFacade;
 import br.com.lucassolutions.schoolbus.model.Expense;
 import br.com.lucassolutions.schoolbus.model.Payment;
-import br.com.lucassolutions.schoolbus.model.PaymentStatus;
+import br.com.lucassolutions.schoolbus.model.Student;
 import br.com.lucassolutions.schoolbus.service.FiancialService;
 import br.com.lucassolutions.schoolbus.util.DateHelper;
 
@@ -24,10 +24,12 @@ import br.com.lucassolutions.schoolbus.util.DateHelper;
 @RequestMapping("/controller/user")
 public class FinancialController {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(FinancialController.class);
+
+	
 	@Autowired private FiancialFacade fiancialFacade;
 	@Autowired private PaymentDao paymentDao;
 	@Autowired private FiancialService fiancialService;
-	@Autowired private StudentDao studentDao;
 	@Autowired private DateHelper dateHelper;
 	
 	@RequestMapping("/showPaymentView")
@@ -35,39 +37,29 @@ public class FinancialController {
 		return "showPayment";
 	}
 	
-	@RequestMapping(value="/searchStudent", method=RequestMethod.POST)
+	@RequestMapping("/searchStudent")
 	public String searchStudent(ModelMap model,@RequestParam("name") String name){
-		Collection<Payment> listPayments = fiancialFacade.searchStudentName(name);
-		model.addAttribute("listPayments", listPayments);
+		LOGGER.info("BUSCANDO PAGAMENTO");
+		Collection<Student> listStudents = fiancialFacade.searchStudentName(name);
+		model.addAttribute("listStudents", listStudents);
+		model.addAttribute("listStudentsSize", listStudents.size());
+		LOGGER.info("QUANTIDADE DE PAGAMENTOS ENCONTRADOS: " + listStudents.size());
 		return showPaymentView(model);
 	}
 	
 	@RequestMapping("/newPaymentView")
 	public String newPaymentView(ModelMap model,@RequestParam("studentId")Long studentId){
-		Payment payment = fiancialFacade.getPaymentByStudentId(studentId);
-		model.addAttribute("payment", payment);
+		Collection<Payment> listPayment = fiancialFacade.getPaymentByStudentId(studentId);
+		model.addAttribute("listPayment", listPayment);
+		model.addAttribute("listPaymentsSize", listPayment.size());
+		LOGGER.info("QUANTIDADE DE PAGAMENTOS EM ABERTO :"+listPayment.size());
 		return "newPayment";
 	}
 	
-	@RequestMapping("/saveNewPayment")
-	public String saveNewPayment(ModelMap model,@RequestParam("paymentId")Long paymentId){
-		
-		Payment payment = paymentDao.findById(paymentId);
-		LocalDate expirationDate = payment.getExpirationDate();
-		LocalDate newExpirationDate = dateHelper.addOneMonth(expirationDate);
-		
-		payment.setExpirationDate(newExpirationDate);
-		payment.setLastPayment(LocalDate.now());
-		payment.setStatus(PaymentStatus.OPENED);
-		payment.setValue(payment.getValue());
-		
-		paymentDao.save(payment);
-		
-		paymentDao.updateStatus(paymentId, PaymentStatus.FINALIZED);
-		
-		
-		
-		return newPaymentView(model, 1L);
+	@RequestMapping("/lowBillet")
+	public String lowBillet(ModelMap model,@RequestParam("paymentId")Long paymentId){
+		Long studentId = fiancialFacade.updatePayment(paymentId);
+		return newPaymentView(model, studentId);
 	}
 	
 	@RequestMapping("/balanceView")
