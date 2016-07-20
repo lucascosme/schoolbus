@@ -50,7 +50,10 @@
 <body>
 
 	<form name='loginForm' action="<c:url value='/login' />" method='POST'>
-		<div class="row block-header without-margin"></div>
+		<div class="row block-header without-margin">
+			<div id="date"></div>
+  			<div id="clock"></div>
+		</div>
 
 		<div class="row without-margin">
 			<div class="col-md-6 text-center">
@@ -68,14 +71,14 @@
 								e senha.</p>
 						</div>
 					</div>
-					<c:if test="${not empty errorMessagegitusj}">
-						<div
-							style="background-color: white; color: red; text-align: center;">
-							<strong>${errorMessage}</strong>
-						</div>
-					</c:if>
 					<div class="row">
 						<div class="col-md-10">
+							<c:if test="${not empty errorMessage}">
+							   	<div class="alert alert-danger alert-dismissible" role="alert">
+									<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									${errorMessage}
+								</div>
+							</c:if>	
 							<div class="form-group">
 								<label>Usuário</label> <input class="form-control"
 									name="username" type="text" autofocus>
@@ -132,6 +135,13 @@
 	<!-- Custom Theme JavaScript -->
 	<script
 		src="${pageContext.request.contextPath}/assets/dist/js/sb-admin-2.js"></script>
+	
+	<!-- Clock -->
+	<script type="text/javascript">
+		document.getElementById('date').innerHTML = moment().format('DD-MM-YYYY');
+
+		setInterval(function(){document.getElementById('clock').innerHTML = moment().format('h:mm:ss A');}, 1000);
+	</script>
 </body>
 
 </html>
