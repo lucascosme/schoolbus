@@ -72,7 +72,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand">
-                    <font color="red" size="5px"><b>Payment</font><font color="white" size="5"> Management</font></b>
+                    <font color="#ed3b24" size="5px"><b>Payment</font><font color="white" size="5"> Management</font></b>
                 </div>
             </div>
             <!-- /.navbar-header -->
