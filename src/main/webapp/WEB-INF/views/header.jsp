@@ -71,7 +71,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">School Bus</a>
+                <div class="navbar-brand">
+                    <font color="red" size="5px"><b>Payment</font><font color="white" size="5"> Management</font></b>
+                </div>
             </div>
             <!-- /.navbar-header -->
 

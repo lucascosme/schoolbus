@@ -21,11 +21,14 @@ a {
 }
 
 a:hover {
-  color: #337AB7;
+  color: #ed3b24;
 }
 a.active{
 	background-color: #eee;
-	color: #337AB7;
+	color: #ed3b24;
+}
+a:focus {
+  color: #ed3b24;
 }
 #page-wrapper{
 	box-shadow: inset 1px 3px 10px rgba(0,0,0,0.3);
