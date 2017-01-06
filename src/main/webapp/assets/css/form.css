@@ -1,0 +1,123 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.fa.pull-right {
+    margin-left: 0.1em;   
+}
+
+.date-picker,
+.date-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    color: #ffffff;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.date-container {
+    padding: 0px 40px;   
+}
+.date-picker h2, .date-picker h4 {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+.date-container .date {
+    text-align: center;
+}
+.date-picker span.fa {
+    position: absolute;
+    font-size: 4em;
+    font-weight: 100;
+    padding: 8px 0px 7px;
+    cursor: pointer;
+    top: 0px;
+}
+.date-picker span.fa[data-type="subtract"] {
+    left: 0px;
+}
+.date-picker span.fa[data-type="add"] {
+    right: 0px;
+}
+.date-picker span[data-toggle="calendar"] {
+    display: block;
+    position: absolute;
+    top: -7px;
+    right: 45px;
+    font-size: 1em !important;
+    cursor: pointer;
+}
+
+.date-picker .input-datepicker {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -17px;
+    width:100%;
+}
+.date-picker .input-datepicker.show-input {
+    display: table;
+}
+
+@media (min-width: 768px) and (max-width: 1010px) {
+    .date-picker h2{
+        font-size: 1.5em; 
+        font-weight: 400;  
+    }    
+    .date-picker h4 {
+        font-size: 1.1em;
+    }  
+    .date-picker span.fa {
+        font-size: 3em;
+    } 
+}
+.btn-primary{
+    background-color: #EE3B24;
+    border-color: #EE3B24;
+}
+.btn-primary:hover{
+    background-color: #FF4500;
+    border-color: #FF4500;
+}
+.btn-primary.focus, .btn-primary:focus{
+    color: #ffffff;
+    background-color: #EE3B24;
+    border-color: #EE3B24;
+}
+
+.btn-default{
+    color: #ffffff;
+    background-color: #EE3B24;
+    border-color: #EE3B24;
+}
+.btn-default:hover{
+    color: #ffffff;
+    background-color: #FF4500;
+    border-color: #FF4500;
+}
+.btn-default.focus, .btn-default:focus{
+    color: #ffffff;
+    background-color: #EE3B24;
+    border-color: #EE3B24;
+}
+.padding-right-icon{
+    padding-right: 0px;
+}
+.margin-left-col{
+    border-left: 1px solid #EE3B24;
+    border-width: 1px;
+    border-radius: 5px;
+}
+.container-body{
+    margin-top: 9%;
+    background-color: #ffffff;
+}
+.btn-primary.active.focus, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary:active.focus, .btn-primary:active:focus, .btn-primary:active:hover, .open>.dropdown-toggle.btn-primary.focus, .open>.dropdown-toggle.btn-primary:focus, .open>.dropdown-toggle.btn-primary:hover{
+    color: #fff;
+    background-color: #FF4500;
+    border-color: #FF4500;
+}

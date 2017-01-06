@@ -43,7 +43,9 @@
 
 	<!-- Style app -->
     <link href="${pageContext.request.contextPath}/assets/css/style.css" rel="stylesheet" type="text/css">
-    
+   
+    <!-- Forms app -->
+    <link href="${pageContext.request.contextPath}/assets/css/form.css" rel="stylesheet" type="text/css">
     
     <!-- Modal -->
      <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery.js"></script>
@@ -72,7 +74,8 @@
                     <span class="icon-bar"></span>
                 </button>
                 <div class="navbar-brand">
-                    <font color="#ed3b24" size="5px"><b>Payment</font><font color="white" size="5"> Management</font></b>
+                    <font color="#ed3b24" size="5px" style="text-shadow: -1px 1px #ffffff;"><b>Payment</font>
+                    <font color="#ffffff" size="5"> Management</font></b>
                 </div>
             </div>
             <!-- /.navbar-header -->
